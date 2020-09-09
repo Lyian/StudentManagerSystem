@@ -1,6 +1,5 @@
 package energy.uniper.util
 
-import energy.uniper.main
 import energy.uniper.models.Student
 import kotlin.random.Random
 
@@ -14,14 +13,15 @@ class StudentGenerator (val countStudents : Int = 150) {
     private val electiveCourses = listOf("Latain", "Spanisch", "Physik", "Biologie", "Chemie", "Sport", "Psychologie", "Pädagokik", "Erdkunde", "Geschichte",
             "Informatik", "Kunst", "Musik", "Politik")
     private val mainCourses = listOf("Deutsch", "Englisch", "Mathe")
-    private val firstNames = listOf("Hannah", "Ben","Emma"	, "Paul", "Emilia", "Leon", "Mia", "Henry", "Ella", "Finn", "Lina", "Felix", "Clara", "Matteo", "Leni", "Luis", "Lea", "Theo", "Sophia", "Noah")
+    private val firstNames = listOf("Hannah", "Ben","Emma", "Paul", "Emilia", "Leon", "Mia", "Henry", "Ella", "Finn", "Lina", "Felix", "Clara", "Matteo", "Leni", "Luis", "Lea", "Theo", "Sophia", "Noah")
     private val lastNames = listOf( "Müller","Schmidt","Schneider","Fischer","Weber","Meyer","Wagner","Becker","Schulz","Hoffmann")
 
     fun generateStudents() : List<Student>{
         for (i in 0..countStudents){
             val (electiveCoursesStudent, mainCoursesStudent) = generateCourses()
-            //println("$electiveCoursesStudent, $mainCoursesStudent ${mainCoursesStudent.size + electiveCoursesStudent.size}")
-            studentList.add(Student(i, firstNames.random(random), lastNames.random(random),electiveCoursesStudent, mainCoursesStudent))
+            val firstName = firstNames.random(random)
+            println("$firstName, $mainCoursesStudent ${mainCoursesStudent.size + electiveCoursesStudent.size}")
+            studentList.add(Student(i, firstName, lastNames.random(random),electiveCoursesStudent, mainCoursesStudent))
         }
         return studentList
     }

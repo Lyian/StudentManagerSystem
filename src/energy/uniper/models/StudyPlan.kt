@@ -1,10 +1,5 @@
 package energy.uniper.models
 
-/**
- * Diese Klasse soll den Studenplan des Schülers ausgeben, indem die auf ihn verteilten Stunden in der Map courseData
- * ausgegeben werden soll.
- */
-
 class StudyPlan(){
     private val courseData = mutableMapOf<String, MutableList<String>>()
 
